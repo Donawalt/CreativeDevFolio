@@ -1,3 +1,31 @@
+@use "sass:map";
 // theme.scss
-$main-color: blue;
-$site-width: 1200px;
+$theme-colors: (
+    "background": #181F25,
+    "text": #FFFFFF,
+    "primary": #7094B0,
+    "secondary": #232D35
+);
+
+$info-colors: (
+    "success": #009A6C,
+    "error": crimson,
+    "warning": orange
+);
+
+@font-face{
+    font-family: 'kate';
+    src: url('../assets/fonts/Kate-Medium.otf') format('truetype'),
+         url('../assets/fonts/Kate-Medium.eot?') format('eot'),
+         url('../assets/fonts/Kate-Medium.woff') format('woff'),
+         url('../assets/fonts/Kate-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'gotham';
+    src: url('../assets/fonts/Gotham-Bold.otf') format('otf');
+    font-weight: bold;
+    font-style: normal;
+}

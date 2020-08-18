@@ -1,9 +1,14 @@
+@use "sass:map";
 // global.scss
 @import "./theme.scss";
 * {
- box-sizing: border-box;
+  box-sizing: border-box;
 }
-html, body {
- margin: 0;
- padding: 0;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: map-get($theme-colors, "background");
+  color: map-get($theme-colors, "text");
 }
+
