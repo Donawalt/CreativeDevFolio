@@ -1,3 +1,15 @@
+<script>
+    import { createEventDispatcher } from 'svelte';
+    const dispatch = createEventDispatcher();
+
+    let menuOpen = false;
+
+    function handleClick(){
+        dispatch('menu',{menuOpen:true});
+        menuOpen = true;
+    }
+</script>
+
 <style lang='scss'>
     @use "sass:map";
     @import '../styles/theme.scss';
@@ -46,7 +58,7 @@
 
 <header>
     <a href='/' rel='prefetch'>DONAËL WALTER</a>
-    <div>
+    <div on:click={handleClick}>
         <span></span>
         <span></span>
         <span></span>

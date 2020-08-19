@@ -18,6 +18,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
+        text-decoration:none;
         img{
             margin-top: 64px;
             height: 64px;
@@ -29,6 +30,7 @@
                 opacity: 0;
                 transition: 300ms;
                 transform: translateY(-50%);
+                text-decoration: none;
         }
         &:hover{
             img,p {
@@ -53,17 +55,17 @@
 
 <footer>
     <ul>
-        <li class='li element'>
-            <img src='' alt='' />
+        <a rel='prefetch' href='https://www.linkedin.com/in/donaël-walter/' class='li element' target='_blank'>
+            <img src='' alt='Logo of Linkedin' />
             <p>Linkedin</p>
-        </li>
-        <li class='dr element'>
-            <img src='' alt='' />
-            <p>Dribble</p>
-        </li>
-        <li class='be element'>
-            <img src='' alt='' />
+        </a>
+        <a rel='prefetch' href='https://dribbble.com/donaelwalter/' class='dr element' target='_blank'>
+            <img src='' alt='Dribbble Logo' />
+            <p>Dribbble</p>
+        </a>
+        <a rel='prefetch' href='https://www.behance.net/donawalt' class='be element' target='_blank'>
+            <img src='' alt='Behance Logo' />
             <p>Behance</p>
-        </li>
+        </a>
     </ul>
 </footer>
