@@ -34,7 +34,6 @@ body {
 
 body {
 	line-height: 1;
-	padding: 8px;
 }
 ol, ul {
 	list-style: none;
@@ -71,6 +70,9 @@ code {
 	}
 }
 
+#app{
+	overflow: hidden;
+}
 
 @font-face{
     font-family: 'kate';

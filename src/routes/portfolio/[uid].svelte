@@ -25,31 +25,78 @@
   export let title;
 </script>
 
-<style>
-  .content :global(h2) {
-    font-size: 1.4em;
-    font-weight: 500;
+<style lang='scss'>
+  @use "sass:map";
+  @import '../../styles/theme.scss';
+  .project_header{
+    height: 95vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 6fr 1fr;
+    overflow: hidden;
+    .project_head{
+      display:flex;
+      justify-content:center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .arianne{
+      margin: auto;
+      span{
+        display: inline-block;
+        width: 68px;
+        height: 4px;
+        background-color: white;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+    }
+    h1{
+      font-family: 'kate', serif;
+      font-size: calc(6rem + 4vw);
+      margin:auto;
+      line-height: 1.2em;
+      text-align: center;
+    }
+    .project_header_footer{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      grid-column: 1 / 3;
+      p {
+        width: 200px;
+        font-size: 18px;
+        &:nth-child(2){
+          text-align: center;
+        }
+        &:nth-child(3){
+          text-align: right;
+        }
+      }
+    }
   }
-
-  .content :global(pre) {
-    background-color: #f9f9f9;
-    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
-    padding: 0.5em;
-    border-radius: 2px;
-    overflow-x: auto;
-  }
-
-  .content :global(pre) :global(code) {
-    background-color: transparent;
-    padding: 0;
-  }
-
-  .content :global(ul) {
-    line-height: 1.5;
-  }
-
-  .content :global(li) {
-    margin: 0 0 0.5em 0;
+  .project-content{
+    section{
+      margin-top: 64px;
+      h3{
+        font-size: 60px;
+      }
+      .project-introduction-wrapper{
+        font-size: 20px;
+        line-height: 28px;
+        display: flex;
+        justify-content: space-between;
+        .project-introduction{
+          width: 50%;
+          margin-top:16px;
+        }
+        .project-types{
+          align-self: flex-end;
+          text-transform: uppercase;
+          color: map-get($theme-colors, "primary");
+        }
+      }
+    }
   }
 </style>
 
@@ -58,17 +105,33 @@
 </svelte:head>
 
 <div class="project">
-  <section class="project-header">
-	<h1>{title}</h1>
+  <section class="project_header">
+  <div class='project_head'>
+    <div class='arianne'>
+      1
+      <span></span>
+      2
+    </div>
+    <h1>{title}</h1>
+  </div>
+  <div class="project_header_footer">
+    <p>{PrismicDOM.RichText.asText(document.data.types_of_project)}</p>
+    <p>Scroll</p>
+    <p>juillet 2020</p>
+  </div>
   </section>
   <section class="project-content">
-    <div>
-      <p class="project-introduction">
-        {PrismicDOM.RichText.asText(document.data.introduction)}
-      </p>
-      <p class="types">
-	  	{PrismicDOM.RichText.asText(document.data.types_of_project)}
-	  </p>
-    </div>
+    <section>
+      <h3>Introduction</h3>
+      <div class='project-introduction-wrapper'>
+        <p class="project-introduction">{PrismicDOM.RichText.asText(document.data.introduction)}<p>
+        <p class="project-types">
+            {PrismicDOM.RichText.asText(document.data.types_of_project)}
+        </p>
+      </div>
+  </section>
+    <section>
+      <h3>Visuels</h3>
+    </section>
   </section>
 </div>

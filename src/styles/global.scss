@@ -8,6 +8,7 @@ html,
 body {
   margin: 0;
   padding: 8px;
+  padding-bottom: 0px;
   background-color: map-get($theme-colors, "background");
   color: map-get($theme-colors, "text");
 }

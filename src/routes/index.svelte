@@ -59,7 +59,6 @@
     }
   }
   .home_projects{
-    min-height: 100vh;
     h2 {
       font-size: 100px;
       width: 100%;
@@ -84,7 +83,26 @@
         padding-bottom: 32px;
         list-style: none;
         position: relative;
+        .thumbnail-image{
+          transition: 400ms;
+          opacity:0;
+          height: 440px;
+          width: 272px;
+          border: 24px solid map-get($theme-colors, "secondary");
+          background-color: black;
+          transition: 300ms;
+          position: absolute;
+          transform: translateY(-20%);
+          top: 32px;
+          right: 64px;
+          border-image: none;
+        }
         &:hover{
+          .thumbnail-image{
+            opacity:1;
+            transform: translateY(-50%) rotate(16deg);
+            transition: 300ms;
+          }
           .project-link{
             opacity:0;
             transition: 300ms;
