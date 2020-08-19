@@ -102,10 +102,12 @@
             opacity:1;
             transform: translateY(-50%) rotate(16deg);
             transition: 300ms;
+            pointer-events: none;
           }
           .project-link{
             opacity:0;
             transition: 300ms;
+            width: 100%;
           }
           .marquee {
             .marquee__inner{
@@ -209,7 +211,7 @@
               <span>{PrismicDOM.RichText.asText(post.data.title_of_the_project)}</span>
             </div>
           </div>
-          <img src='' alt='' class='thumbnail-image follow-cursor'/>
+          <img src='{post.data.thumbnail.url}' alt='{post.data.thumbnail.alt}' class='thumbnail-image follow-cursor'/>
         </li>
       {/each}
     </div>

@@ -45,7 +45,7 @@
 </style>
 
 <header>
-    <a href='/'>DONAËL WALTER</a>
+    <a href='/' rel='prefetch'>DONAËL WALTER</a>
     <div>
         <span></span>
         <span></span>
