@@ -33,8 +33,10 @@
 </script>
 
 <style lang="scss">
+@use "sass:map";
+@import '../styles/theme.scss';
   .home_header{
-    height: 90vh;
+    height: 95vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 6fr 1fr;
@@ -44,6 +46,16 @@
       justify-content: space-between;
       align-items: flex-end;
       grid-column: 1 / 3;
+      p {
+        width: 800px;
+        font-size: 18px;
+        &:nth-child(2){
+          text-align: center;
+        }
+        &:nth-child(3){
+          text-align: right;
+        }
+      }
     }
   }
   .home_projects{
@@ -52,17 +64,48 @@
       font-size: 100px;
       width: 100%;
       text-align: center;
+      margin: 50px;
+      margin-left: 0px;
+      margin-right: 0px;
     }
     .projectsWrapper{
       border-top: 2px solid white;
+      &:hover{
+        border-top: 2px solid map-get($theme-colors, "primary");
+        li{border-bottom: 2px solid map-get($theme-colors, "primary");}
+        .project-link{
+          color: map-get($theme-colors, "primary");
+          transition: 300ms;
+        }
+      }
       li{
         border-bottom: 2px solid white;
+        padding-top: 32px;
         padding-bottom: 32px;
         list-style: none;
+        position: relative;
+        &:hover{
+          .project-link{
+            opacity:0;
+            transition: 300ms;
+          }
+          .marquee {
+            .marquee__inner{
+              opacity: 1;
+              animation-play-state: running;
+            }
+          }
+        }
+        .marquee {
+          text-decoration: none;
+          font-family: 'kate', serif;
+          font-size: calc(2rem + 4vw);
+          pointer-events: none;
+        }
         .project-link{
           text-decoration: none;
           font-family: 'kate', serif;
-          font-size: calc(3rem + 4vw);
+          font-size: calc(2rem + 4vw);
         }
       }
     }
@@ -71,7 +114,51 @@
     font-family: 'kate', serif;
     font-size: calc(6rem + 4vw);
     margin:auto;
+    line-height: 1.2em;
   }
+
+  .marquee {
+    position: absolute;
+    top:0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    --offset: 20vw;
+    --move-initial: calc(-25% + var(--offset));
+    --move-final: calc(-50% + var(--offset));
+}
+
+.marquee__inner {
+    width: max-content;
+    display: flex;
+    position: relative;
+    margin-top: 32px;
+    transform: translate3d(var(--move-initial), 0, 0);
+    animation: marquee 5s linear infinite;
+    animation-play-state: paused;
+    opacity: 0;
+    transition: opacity 0.1s;
+}
+
+.marquee span {
+    font-size: calc(2rem + 4vw);
+    font-style: italic;
+    padding: 0 2vw;
+}
+
+.marquee:hover .marquee__inner {
+    animation-play-state: running;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(var(--move-initial), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--move-final), 0, 0);
+    }
+}
 </style>
 
 <svelte:head>
@@ -92,10 +179,19 @@
     <h2>Selected<br/> case</h2>
     <div class="projectsWrapper">
       {#each selectedPosts as post}
-        <li>
+        <li class='project-item'>
           <a rel="prefetch" href={linkResolver(post)} class='project-link'>
             {PrismicDOM.RichText.asText(post.data.title_of_the_project)}
           </a>
+          <div class='marquee'>
+            <div class='marquee__inner' aria-hidden='true'>
+              <span>{PrismicDOM.RichText.asText(post.data.title_of_the_project)}</span>
+              <span>{PrismicDOM.RichText.asText(post.data.title_of_the_project)}</span>
+              <span>{PrismicDOM.RichText.asText(post.data.title_of_the_project)}</span>
+              <span>{PrismicDOM.RichText.asText(post.data.title_of_the_project)}</span>
+            </div>
+          </div>
+          <img src='' alt='' class='thumbnail-image follow-cursor'/>
         </li>
       {/each}
     </div>
