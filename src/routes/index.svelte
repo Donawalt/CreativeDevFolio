@@ -3,6 +3,7 @@
   import Prismic from "prismic-javascript";
   import PrismicDOM from "prismic-dom";
   import { Client, linkResolver } from "../../prismic-config.js";
+  import { fade } from 'svelte/transition';
 
   let homepage = null;
   let posts = null;

@@ -1,6 +1,7 @@
 <script>
 	import Header from '../components/Header.svelte';
 	import Footer from "../components/Footer.svelte";
+	import Menu from "../components/Menu.svelte";
 
 	let menuOpen = false;
 
@@ -8,6 +9,7 @@
 		menuOpen = event.detail.menuOpen;
 		console.log(menuOpen);
 	}
+	export let segment;
 </script>
 
 <style lang="scss" global>
@@ -22,7 +24,9 @@
 </style>
 
 <Header on:menu={handleMenu}/>
-
+{#if menuOpen}
+<Menu on:menu={handleMenu} {segment} />
+{/if}
 <main>
 	<slot></slot>
 </main>
