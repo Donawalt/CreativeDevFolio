@@ -23,7 +23,6 @@
             margin-top: 64px;
             height: 64px;
             width: 64px;
-            background-color: white;
             margin-bottom: 16px;
         }
         img,p {
@@ -56,15 +55,15 @@
 <footer>
     <ul>
         <a rel='prefetch' href='https://www.linkedin.com/in/donaël-walter/' class='li element' target='_blank'>
-            <img src='' alt='Logo of Linkedin' />
+            <img src='linkedin.png' alt='Logo of Linkedin' />
             <p>Linkedin</p>
         </a>
         <a rel='prefetch' href='https://dribbble.com/donaelwalter/' class='dr element' target='_blank'>
-            <img src='' alt='Dribbble Logo' />
+            <img src='dribbble.png' alt='Dribbble Logo' />
             <p>Dribbble</p>
         </a>
         <a rel='prefetch' href='https://www.behance.net/donawalt' class='be element' target='_blank'>
-            <img src='' alt='Behance Logo' />
+            <img src='behance.png' alt='Behance Logo' />
             <p>Behance</p>
         </a>
     </ul>
